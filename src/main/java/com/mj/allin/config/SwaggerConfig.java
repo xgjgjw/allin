@@ -1,4 +1,4 @@
-package com.mj.allin.comfig;
+package com.mj.allin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +31,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() throws UnknownHostException {
         String host = InetAddress.getLocalHost().getHostAddress();
         return new ApiInfoBuilder()
-                .title("监测联网接口")
+                .title("allin")
                 .description("")
                 .termsOfServiceUrl("http://"+host+"8088/allin")
                 .version("1.0")
