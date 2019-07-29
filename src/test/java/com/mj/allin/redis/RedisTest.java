@@ -63,5 +63,33 @@ public class RedisTest {
         myhash.forEach((k,v) ->{System.out.println(k+" "+v);});
         System.out.println("1");
     }
+    @Test
+    public void testList(){
+        for (int i = 0; i < 10; i++) {
+            redisTemplate.opsForList().leftPush("mylist",i+""+i);
+        }
+    }
+    @Test
+    public void testTestList(){
+        //获取集合指定位置的值。index
+        String index = redisTemplate.opsForList().index("mylist", 2);
+        System.out.println(index);
+        //获取指定区间的值。range
+        List<String> range = redisTemplate.opsForList().range("mylist", 0, -1);
+        range.forEach(s -> System.out.println(s));
+        //把最后一个参数值放到指定集合的第一个出现中间参数的前面，如果中间参数值存在的话。leftPush
+        Long mylist = redisTemplate.opsForList().leftPush("mylist", "33", "43");
+        List<String> range1 = redisTemplate.opsForList().range("mylist", 0, -1);
+        range1.forEach(s -> System.out.println(s));
+        //size
+        Long mylist1 = redisTemplate.opsForList().size("mylist");
+        System.out.println(mylist1);
+    }
+    @Test
+    public void testSet(){
+        //向变量中批量添加值
+        redisTemplate.opsForSet().add("setValue","A","B","C","D","E","F");
+
+    }
 
 }
