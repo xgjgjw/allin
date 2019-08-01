@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
     //@Scheduled(cron = "0/5 * * * * *")  // 表示 在指定时间执行
     public void getRedisKeys() {
         Map<String,Object> map = new HashMap<>();
-        String name = redisUtils.get("name");
-        String names = redisUtils.get("names");
+        String name = redisUtils.geta("name");
+        String names = redisUtils.geta("names");
         System.out.println("每隔10秒钟执行一次： " + new Date().getTime()+"   boolean："+name);
         System.out.println("每隔10秒钟执行一次： " + new Date().getTime()+"   boolean："+names);
     }

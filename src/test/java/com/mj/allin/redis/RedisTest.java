@@ -29,13 +29,15 @@ public class RedisTest {
     }
 
     /**
-     * 读取缓存数据
+     * 判断key值存在与否
+     * @return
      */
     @Test
-    public void get() {
-        String value = redisUtils.get("redis_key");
-        System.out.println(value);
+    public void hasKey(){
+        System.out.println(redisUtils.hasKey("redis_key"));
     }
+
+
     @Test
     public void test1(){
         for (int i = 0; i < 10; i++) {
